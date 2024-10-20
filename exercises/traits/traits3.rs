@@ -8,10 +8,26 @@
 // Execute `rustlings hint traits3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 pub trait Licensed {
     fn licensing_info(&self) -> String;
+}
+
+fn default_licensing_info() -> String {
+    String::from("Some information")
+}
+
+impl Licensed for SomeSoftware {
+    fn licensing_info(&self) -> String {
+        default_licensing_info()
+    }
+}
+
+impl Licensed for OtherSoftware {
+    fn licensing_info(&self) -> String {
+        default_licensing_info()
+    }
 }
 
 struct SomeSoftware {
@@ -21,9 +37,6 @@ struct SomeSoftware {
 struct OtherSoftware {
     version_number: String,
 }
-
-impl Licensed for SomeSoftware {} // Don't edit this line
-impl Licensed for OtherSoftware {} // Don't edit this line
 
 #[cfg(test)]
 mod tests {
