@@ -112,5 +112,5 @@ mod test_undirected_graph {
         for edge in expected_edges.iter() {
             assert_eq!(graph.edges().contains(edge), true);
         }
-    }
+    } 
 }
